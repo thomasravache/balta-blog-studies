@@ -19,9 +19,9 @@ app.MapGet("/", () => new {
 });
 
 app.MapPost("/", (Upload model) => {
-    UploadBase64Image(model.Image, "user-images");
+    var url = UploadBase64Image(model.Image, "user-images");
 
-    return Results.Ok();
+    return Results.Ok(url);
 });
 
 app.Run();
